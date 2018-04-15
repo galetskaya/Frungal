@@ -3,5 +3,6 @@ Rails.application.routes.draw do
   devise_scope :admin do
   	get 'admin', to: 'devise/sessions#new'
   end
+  resources :albums
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
