@@ -5,4 +5,5 @@ Here are all albums:
   = album.name
   = album.description
   = image_tag(album.image)
-
+  = link_to "edit", edit_album_path(album)
+  = link_to "delete", album_path(album), method: :delete
