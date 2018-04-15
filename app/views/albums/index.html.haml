@@ -1,0 +1,8 @@
+= link_to "New album", new_album_path
+
+Here are all albums:
+- @albums.each do |album|
+  = album.name
+  = album.description
+  = image_tag(album.image)
+
