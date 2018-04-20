@@ -1,0 +1,11 @@
+%nav.navbar.navbar-inverse
+  .container-fluid
+    .navbar-header
+      = link_to("Julia", albums_path, class: "navbar-brand")
+    .navbar-collapse
+      %ul.nav.navbar-nav
+        %li
+          = link_to("Create a new album", new_album_path)
+      %ul.nav.navbar-nav.navbar-right
+        %li
+          = link_to('Logout', destroy_admin_session_path, method: :delete)
