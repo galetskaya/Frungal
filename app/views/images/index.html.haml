@@ -2,7 +2,8 @@
 
 .container
   %h1= @album.name
-  %p= link_to "new image", new_album_image_path(@album)
+  = link_to(new_album_image_path(@album), class: "btn-lg") do
+    %span.fas.fa-images{"aria-hidden" => "true"}
   %ul
     - @images.each do |image|
       .col-lg-4.col-md-6.col-sm-6.col-xs-12
