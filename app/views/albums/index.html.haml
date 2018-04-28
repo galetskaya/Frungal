@@ -7,9 +7,9 @@
       .col-lg-4.col-md-6.col-sm-6.col-xs-12
         .panel.panel-default
           .panel-heading
-            %h3.panel-title= album.name
+            %p= link_to(album.name, album_images_path(album))
           .panel-body
-            %p= link_to(album.description, album_images_path(album))
+            %p= album.description
             = image_tag(album.image, width: 600, class: "img-responsive img-thumbnail")
           .panel-footer
             = link_to(edit_album_path(album), class: "btn btn-default btn-xs") do
