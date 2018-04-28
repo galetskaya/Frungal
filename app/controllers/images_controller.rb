@@ -13,8 +13,12 @@ class ImagesController < ApplicationController
     @album = Album.find(params[:album_id])
     @image = Image.create(image_params)
     @image.album_id = @album.id
-    @image.save!
-    redirect_to album_images_path(@album)
+    if @image.save
+      redirect_to album_images_path(@album)
+    else
+      flash[:error] = @image.errors.full_messages
+      render :new
+    end
   end
 
   def edit

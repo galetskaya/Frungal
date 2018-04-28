@@ -9,8 +9,12 @@ class AlbumsController < ApplicationController
 
   def create
     @album = Album.create(album_params)
-    @album.save!
-    redirect_to albums_path
+    if @album.save
+      redirect_to albums_path
+    else
+      flash[:error] = @album.errors.full_messages
+      render :new
+    end
   end
 
   def edit
