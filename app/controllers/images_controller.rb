@@ -1,17 +1,20 @@
 class ImagesController < ApplicationController
   def index
     @album = Album.find(params[:album_id])
-    @images = Image.all
+    @images = @album.images
   end
 
   def new
+    @album = Album.find(params[:album_id])
     @image = Image.new
   end
 
   def create
+    @album = Album.find(params[:album_id])
     @image = Image.create(image_params)
+    @image.album_id = @album.id
     @image.save!
-    # redirect_to albums_path
+    redirect_to album_images_path(@album)
   end
 
   def edit
@@ -25,9 +28,10 @@ class ImagesController < ApplicationController
   end
 
   def destroy
-    @image = image.find(params[:id])
+    @album = Album.find(params[:album_id])
+    @image = Image.find(params[:id])
     @image.destroy
-    # redirect_to albums_path
+    redirect_to album_images_path(@album)
   end
 
   private
