@@ -10,4 +10,6 @@ Rails.application.routes.draw do
       resources :images
     end
   end
+
+  root to: "admin/albums#index"
 end
