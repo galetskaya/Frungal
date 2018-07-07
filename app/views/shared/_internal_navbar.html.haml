@@ -1,0 +1,12 @@
+%nav.navbar.navbar-inverse
+  .container-fluid
+    .navbar-header
+      = link_to("Julia Galetskaya", albums_path, class: "navbar-brand")
+    .navbar-collapse
+      %ul.nav.navbar-nav
+        %li
+          = link_to(new_album_path, class: "btn-lg") do
+            %span.fas.fa-plus{"aria-hidden" => "true"}
+      %ul.nav.navbar-nav.navbar-right
+        %li
+          = link_to('Logout', destroy_admin_session_path, method: :delete)
