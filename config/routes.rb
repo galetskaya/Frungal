@@ -2,7 +2,15 @@ Rails.application.routes.draw do
   devise_for :admins, skip: :registrations
 
   devise_scope :admin do
-    get 'admin', to: 'devise/sessions#new'
+    get "admin", to: "devise/sessions#new"
+
+    authenticated :admin do
+      root to: "admin/albums#index", as: :authenticated_root
+    end
+
+    unauthenticated :admin do
+      root to: "devise/sessions#new", as: :unauthenticated_root
+    end
   end
 
   namespace :admin do
@@ -10,4 +18,6 @@ Rails.application.routes.draw do
       resources :images
     end
   end
+
+  root to: "admin/albums#index"
 end
