@@ -1,4 +1,4 @@
-class AlbumsController < ApplicationController
+class Admin::AlbumsController < Admin::BaseController
   def index
     @albums = Album.all
   end
@@ -10,7 +10,7 @@ class AlbumsController < ApplicationController
   def create
     @album = Album.create(album_params)
     if @album.save
-      redirect_to albums_path
+      redirect_to admin_albums_path
     else
       flash[:error] = @album.errors.full_messages
       render :new
@@ -24,13 +24,13 @@ class AlbumsController < ApplicationController
    def update
     @album = Album.find(params[:id])
     @album.update_attributes(album_params)
-    redirect_to albums_path
+    redirect_to admin_albums_path
   end
 
   def destroy
     @album = Album.find(params[:id])
     @album.destroy
-    redirect_to albums_path
+    redirect_to admin_albums_path
   end
 
   private

@@ -4,7 +4,7 @@
   .page-header
     %h1= "Add new image"
 
-  = bootstrap_form_for @image, url: album_images_path(@album), method: :POST, html: {class: 'form-horizontal'} do |f|
+  = bootstrap_form_for @image, url: admin_album_images_path(@album), method: :POST, html: {class: 'form-horizontal'} do |f|
     = content_tag :div, class: "form-group" do
       .col-sm-7
         = f.text_area :image, class: 'form-control'

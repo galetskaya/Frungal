@@ -1,4 +1,4 @@
-class ImagesController < ApplicationController
+class Admin::ImagesController < Admin::BaseController
   def index
     @album = Album.find(params[:album_id])
     @images = @album.images
@@ -14,7 +14,7 @@ class ImagesController < ApplicationController
     @image = Image.create(image_params)
     @image.album_id = @album.id
     if @image.save
-      redirect_to album_images_path(@album)
+      redirect_to admin_album_images_path(@album)
     else
       flash[:error] = @image.errors.full_messages
       render :new
@@ -35,7 +35,7 @@ class ImagesController < ApplicationController
     @album = Album.find(params[:album_id])
     @image = Image.find(params[:id])
     @image.destroy
-    redirect_to album_images_path(@album)
+    redirect_to admin_album_images_path(@album)
   end
 
   private
