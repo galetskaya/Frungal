@@ -5,6 +5,9 @@ Rails.application.configure do
   config.cache_classes = true
   config.require_master_key = true
 
+  # Store files on Amazon S3.
+  config.active_storage.service = :amazon
+
   # Eager load code on boot. This eager loads most of Rails and
   # your application in memory, allowing both threaded web servers
   # and those relying on copy on write to perform better.

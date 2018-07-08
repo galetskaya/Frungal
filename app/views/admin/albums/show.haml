@@ -1,0 +1,17 @@
+= render "shared/internal_navbar"
+
+.container
+  %h1 Photos in album #{@album.name}
+  %ul
+    - @photos.each do |photo|
+      .col-lg-8.col-md-8.col-sm-6.col-xs-12
+        .panel.panel-default
+          .panel-body
+            = image_tag(photo, width: 800, class: "img-responsive")
+          .panel-footer
+            = link_to(admin_album_purge_photo_path(@album, blob_id: photo.blob_id), method: :delete, class: "btn btn-danger btn-xs") do
+              %span.glyphicon.glyphicon-trash{"aria-hidden" => "true"}
+              Delete
+
+
+
