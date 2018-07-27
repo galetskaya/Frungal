@@ -34,7 +34,13 @@ class Admin::AlbumsController < Admin::BaseController
 
   def destroy
     @album = Album.find(params[:id])
-    @album.destroy
+
+    if @album.destroy
+      @album.cover.purge if @album.cover
+    else
+      flash[:error] = @album.errors.full_messages
+    end
+
     redirect_to admin_albums_path
   end
 
