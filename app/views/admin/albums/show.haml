@@ -9,7 +9,7 @@
           .panel-body
             = image_tag(photo, width: 800, class: "img-responsive")
           .panel-footer
-            = link_to(admin_album_purge_photo_path(@album, blob_id: photo.blob_id), method: :delete, class: "btn btn-danger btn-xs") do
+            = link_to(admin_album_purge_photo_path(@album, blob_id: photo.blob_id), method: :delete, class: "btn btn-danger btn-xs", data: { confirm: "Are you sure?" }) do
               %span.glyphicon.glyphicon-trash{"aria-hidden" => "true"}
               Delete
 
