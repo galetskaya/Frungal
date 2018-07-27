@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :albums do
-      resources :images
+      delete :purge_photo
     end
   end
 

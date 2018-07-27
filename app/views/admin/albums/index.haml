@@ -7,10 +7,11 @@
       .col-lg-4.col-md-6.col-sm-6.col-xs-12
         .panel.panel-default
           .panel-heading
-            %p= link_to(album.name, admin_album_images_path(album))
+            %p= link_to album.name, admin_album_path(album)
           .panel-body
             %p= album.description
-            = image_tag(album.image, width: 600, class: "img-responsive img-thumbnail")
+            - if album.cover.attached?
+              = image_tag(album.cover, width: 600, class: "img-responsive img-thumbnail")
           .panel-footer
             = link_to(edit_admin_album_path(album), class: "btn btn-default btn-xs") do
               %span.fas.fa-pen-square{"aria-hidden" => "true"}

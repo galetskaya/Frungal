@@ -7,6 +7,11 @@ class Admin::AlbumsController < Admin::BaseController
     @album = Album.new
   end
 
+  def show
+    @album  = Album.find(params[:id])
+    @photos = @album.photos
+  end
+
   def create
     @album = Album.create(album_params)
     if @album.save
@@ -33,9 +38,16 @@ class Admin::AlbumsController < Admin::BaseController
     redirect_to admin_albums_path
   end
 
+  def purge_photo
+    album = Album.find(params[:album_id])
+    photo = album.photos.find_by(blob_id: params[:blob_id])
+    photo.purge if photo
+    redirect_to admin_album_path(album)
+  end
+
   private
 
   def album_params
-    params.require(:album).permit(:name, :description, :image)
+    params.require(:album).permit(:name, :description, :cover, photos: [])
   end
 end
