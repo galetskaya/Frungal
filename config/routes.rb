@@ -2,14 +2,14 @@ Rails.application.routes.draw do
   devise_for :admins, skip: :registrations
 
   devise_scope :admin do
-    get "admin", to: "devise/sessions#new"
+    get "admin", to: "admin/albums#index"
 
     authenticated :admin do
-      root to: "admin/albums#index", as: :authenticated_root
+      root to: "pages#landing", as: :authenticated_root
     end
 
     unauthenticated :admin do
-      root to: "devise/sessions#new", as: :unauthenticated_root
+      root to: "pages#landing", as: :unauthenticated_root
     end
   end
 
@@ -19,5 +19,7 @@ Rails.application.routes.draw do
     end
   end
 
-  root to: "admin/albums#index"
+  resources :pages, only: [] do
+    get :landing, on: :collection
+  end
 end
