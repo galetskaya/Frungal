@@ -16,6 +16,6 @@
             = link_to(edit_admin_album_path(album), class: "btn btn-default btn-xs") do
               %span.fas.fa-pen-square{"aria-hidden" => "true"}
               Edit
-            = link_to(admin_album_path(album), method: :delete, class: "btn btn-danger btn-xs pull-right") do
+            = link_to(admin_album_path(album), method: :delete, class: "btn btn-danger btn-xs pull-right", data: { confirm: "Are you sure?" }) do
               %span.glyphicon.glyphicon-trash{"aria-hidden" => "true"}
               Delete
