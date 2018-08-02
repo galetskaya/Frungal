@@ -19,8 +19,20 @@
 @import "bootstrap";
 @import "hover.min";
 @import "magnific-popup";
+@import "font-awesome";
 
-.form-panel {
-  padding: 30px;
-  margin-top: 40px;
+.icon-white-lg {
+  color: white;
+  font-size: 25px;
+  padding-right: 10px;
+}
+
+.icon-grey-lg {
+  font-size: 25px;
+  padding-right: 10px;
+  color: #999999;
+}
+
+.icon-grey-lg:hover {
+  color: #CFB53B;
 }
