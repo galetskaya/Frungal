@@ -10,4 +10,4 @@ This is a sample portfolio website test.
 
 Encrypt rails master key for travis configuration file:
 
-`travis encrypt RAILS_MASTER_KEY=`cat config/master.key` --add env`
+`travis encrypt-file config/master.key --add`
