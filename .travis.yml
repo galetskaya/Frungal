@@ -2,5 +2,5 @@ language: ruby
 rvm:
   - 2.4.0
 script:
-  - RAILS_ENV=test bundle exec rake db:create db:migrate
-  - bundle exec rails test
+  - RAILS_ENV=test bundle exec rake db:migrate
+  - bundle exec rspec
