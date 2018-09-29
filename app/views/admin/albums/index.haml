@@ -4,7 +4,7 @@
   %h1 Albums
   %ul
     - @albums.each do |album|
-      .col-lg-4.col-md-6.col-sm-6.col-xs-12
+      .col-lg-6.col-md-6.col-sm-6.col-xs-12
         .panel.panel-default
           .panel-heading
             %p= link_to album.name, admin_album_path(album)
