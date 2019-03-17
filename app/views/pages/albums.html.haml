@@ -1,13 +1,18 @@
-%nav{"aria-label" => "breadcrumb"}
-  %ol.breadcrumb
-    %li.breadcrumb-item= link_to "Home", landing_pages_path
-    %li.breadcrumb-item.active{"aria-current" => "page"} Albums
+%header.bg-primary.text-center.py-5.mb-4
+  .container
+    %h1.font-weight-light.text-white My work
 
 .container
-  - @albums.each do |album|
-    .col-lg-6.col-md-6.col-sm-6.col-xs-12
-      .panel.panel-default
-        .panel-heading
-          = link_to album_photos_path(album) do
-            = image_tag(album.cover, width: 600, class: "img-responsive img-thumbnail")
+  .row
+    - @albums.each do |album|
+      .col-xl-3.col-md-6.mb-4
+        .card.border-0.shadow
+          .card-img-top
+            = link_to album_photos_path(album) do
+              = image_tag(album.cover, class: "card-img-top")
+            .card-body.text-center
+              %h5.card-title.mb-0
+                = album.name
+              .card-text.text-black-50
+                = truncate(album.description, length: 100)
 
