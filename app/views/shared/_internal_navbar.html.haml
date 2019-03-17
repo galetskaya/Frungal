@@ -1,12 +1,10 @@
-%nav.navbar.navbar-inverse
-  .container-fluid
-    .navbar-header
-      = link_to("Julia Galetskaya", admin_albums_path, class: "navbar-brand")
-    .navbar-collapse
-      %ul.nav.navbar-nav
-        %li
-          = link_to(new_admin_album_path, class: "btn-lg") do
-            %span.fas.fa-plus{"aria-hidden" => "true"}
-      %ul.nav.navbar-nav.navbar-right
-        %li
-          = link_to('Logout', destroy_admin_session_path, method: :delete)
+.navbar.navbar-expand-lg.navbar-light.bg-light.justify-content-between
+  = link_to("Julia Galetskaya", admin_albums_path, class: "navbar-brand mb-0 h1")
+  .collapse.navbar-collapse
+    %ul.navbar-nav
+      %li.nav-item
+        = link_to(new_admin_album_path, class: "btn-lg nav-link") do
+          %span.fas.fa-plus{"aria-hidden" => "true"}
+    %ul.navbar-nav.ml-auto
+      %li.nav-item
+        = link_to("Logout", destroy_admin_session_path, method: :delete, class: "nav-link btn btn-outline-secondary")
