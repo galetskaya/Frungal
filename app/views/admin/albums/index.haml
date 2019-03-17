@@ -10,13 +10,11 @@
         .card.h-100
           - if album.cover.attached?
             = image_tag(album.cover, width: 600, class: "img-responsive card-img-top")
-
           .card-body
             %h4.card-title
               = link_to album.name, admin_album_path(album)
             .card-text
               %p= album.description
-
           .card-footer
             = link_to(edit_admin_album_path(album), class: "btn btn-outline-info btn-xs") do
               %span.fas.fa-pen-square{"aria-hidden" => "true"}
