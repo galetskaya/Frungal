@@ -1,13 +1,19 @@
-.col-lg-4.col-lg-offset-4.col-md-6.col-md-offset-3.col-sm-8.col-sm-offset-2.col-xs-12
-  .panel.panel-default.form-panel
-    %h2 Log in
-    = bootstrap_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-      .field
-        = f.email_field :email, autofocus: true, autocomplete: "email"
-      .field
-        = f.password_field :password, autocomplete: "off"
-      - if devise_mapping.rememberable?
-        .field
-          = f.check_box :remember_me
-      .actions
-        = f.submit "Log in"
+.row
+  .col-sm-9.col-md-7.col-lg-5.mx-auto
+    .card.card-signin.my-5
+      .card-body
+        %h5.card-title.text-center Sign in
+
+        .form-signin
+          = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+            .form-label-group
+              = f.email_field :email, autofocus: true, placeholder: "Email", autocomplete: "email", class: "form-control"
+              = f.label :email, "Email"
+            .form-label-group
+              = f.password_field :password, placeholder: "Password", autocomplete: "off", class: "form-control"
+              = f.label :password, "Password"
+            - if devise_mapping.rememberable?
+              .custom-control.custom-checkbox.mb-3
+                = f.check_box :remember_me, placeholder: "Remember password", class: "custom-control-input"
+                = f.label :remember_me, "Remember password", class: "custom-control-label"
+              = f.submit "Sign in", class: "btn btn-lg btn-outline-dark btn-block text-uppercase"
