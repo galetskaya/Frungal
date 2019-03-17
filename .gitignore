@@ -11,6 +11,9 @@
 /db/*.sqlite3
 /db/*.sqlite3-journal
 .DS_Store
+/assets/.DS_Store
+assets/images/.DS_Store
+**/.DS_Store
 
 # Ignore uploaded files in development
 /storage/*
