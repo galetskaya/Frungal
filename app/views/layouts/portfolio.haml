@@ -1,14 +1,15 @@
 !!!
 %html
   %head
-    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{content: "text/html; charset=UTF-8", "http-equiv": "Content-Type"}/
     %title Portfolio
     = csrf_meta_tags
-    %link{:crossorigin => "anonymous", :href => "https://use.fontawesome.com/releases/v5.0.10/css/all.css", :integrity => "sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg", :rel => "stylesheet"}/
+    %link{crossorigin: "anonymous", href: "https://use.fontawesome.com/releases/v5.0.10/css/all.css", integrity: "sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg", rel: "stylesheet"}/
     / Google Fonts
-    %link{:href => "https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,500,500i,600,600i,700,700i|Playfair+Display:400,400i,700,700i,900,900i", :rel => "stylesheet"}/
+    %link{href: "https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,500,500i,600,600i,700,700i|Playfair+Display:400,400i,700,700i,900,900i", rel: "stylesheet"}/
 
-    = stylesheet_link_tag    'portfolio/application', media: 'all', 'data-turbolinks-track': 'reload'
-    = javascript_include_tag 'portfolio/application', 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag    "portfolio/application", media: "all", "data-turbolinks-track": "reload"
+    = javascript_include_tag "portfolio/application", "data-turbolinks-track": "reload"
+    = favicon_link_tag asset_path("julia.png"), rel: "icon", type: "image/png"
   %body
     = yield

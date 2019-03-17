@@ -1,11 +1,12 @@
 !!!
 %html
   %head
-    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{content: "text/html; charset=UTF-8", "http-equiv": "Content-Type"}/
     %title Admin panel
     = csrf_meta_tags
-    %link{:crossorigin => "anonymous", :href => "https://use.fontawesome.com/releases/v5.0.10/css/all.css", :integrity => "sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg", :rel => "stylesheet"}/
-    = stylesheet_link_tag    'admin/application', media: 'all', 'data-turbolinks-track': 'reload'
-    = javascript_include_tag 'admin/application', 'data-turbolinks-track': 'reload'
+    %link{crossorigin: "anonymous", href: "https://use.fontawesome.com/releases/v5.0.10/css/all.css", integrity: "sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg", rel: "stylesheet"}/
+    = stylesheet_link_tag    "admin/application", media: "all", "data-turbolinks-track": "reload"
+    = javascript_include_tag "admin/application", "data-turbolinks-track": "reload"
+    = favicon_link_tag asset_path("julia.png"), rel: "icon", type: "image/png"
   %body
     = yield
