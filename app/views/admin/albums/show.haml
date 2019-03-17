@@ -1,14 +1,15 @@
 = render "shared/internal_navbar"
 
 .container
-  %h1 Photos in album #{@album.name}
-  %ul
+  %h1.font-weight-light.text-center.text-lg-left.mt-4.mb-0 Photos in album #{@album.name}
+  %hr.mt-2.mb-5
+
+  .row
     - @photos.each do |photo|
-      .col-lg-8.col-md-8.col-sm-6.col-xs-12
-        .panel.panel-default
-          .panel-body
-            = image_tag(photo, width: 800, class: "img-responsive")
-          .panel-footer
-            = link_to(admin_album_purge_photo_path(@album, blob_id: photo.blob_id), method: :delete, class: "btn btn-danger btn-xs", data: { confirm: "Are you sure?" }) do
-              %span.glyphicon.glyphicon-trash{"aria-hidden" => "true"}
+      .col-lg-6.mb-4
+        .card.h-100
+          .card-header
+            = link_to(admin_album_purge_photo_path(@album, blob_id: photo.blob_id), method: :delete, class: "btn btn-outline-danger btn-xs float-right", data: { confirm: "Are you sure?" }) do
+              %span.fa.fa-trash{"aria-hidden" => "true"}
               Delete
+          = image_tag(photo, width: 800, class: "img-responsive card-img-top")
