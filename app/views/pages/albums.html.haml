@@ -1,0 +1,17 @@
+%header.bg-primary.text-center.py-5.mb-4
+  .container
+    %h1.font-weight-light.text-white My work
+
+.container
+  .row
+    - @albums.each do |album|
+      .col-xl-3.col-md-6.mb-4
+        .card.border-0.shadow
+          .card-img-top
+            = link_to album_photos_path(album) do
+              = image_tag(album.cover, class: "card-img-top")
+            .card-body.text-center
+              %h5.card-title.mb-0
+                = album.name
+              .card-text.text-black-50
+                = truncate(album.description, length: 100)

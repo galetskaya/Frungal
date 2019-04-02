@@ -22,4 +22,7 @@ Rails.application.routes.draw do
   resources :pages, only: [] do
     get :landing, on: :collection
   end
+
+  get "/albums", to: "pages#albums"
+  get '/albums/:id/photos', to: "pages#photos", as: "album_photos"
 end

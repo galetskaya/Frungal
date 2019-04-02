@@ -4,7 +4,7 @@
       <div class="container">
 
         <div class="logo">
-          <%= image_tag "logo.png", class: "img-responsive", alt: "logo"%>
+          <%= image_tag "julia.png", class: "img-responsive", alt: "logo"%>
         </div>
 
         <div class="responsive"><i data-icon="m" class="ion-navicon-round"></i></div>
@@ -12,14 +12,13 @@
         <ul class="nav-menu list-unstyled">
           <li><a href="#header" class="smoothScroll">Home</a></li>
           <li><a href="#about" class="smoothScroll">About</a></li>
-          <li><a href="#portfolio" class="smoothScroll">Portfolio</a></li>
+          <li><%= link_to "Portfolio", albums_path %></li>
         </ul>
 
       </div>
     </div>
   </nav>
   <!-- End section navbar -->
-
 
   <!-- start section header -->
   <div id="header" class="home">
@@ -93,7 +92,7 @@
 
       </div>
 
-      <p>&copy; Copyrights A.Frunza & A.Galetskaya. All rights reserved.</p>
+      <p>Copyright &copy; Julia Galeckaya 2019</p>
 
       <div class="credits">
         <!--
